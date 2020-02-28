@@ -7,26 +7,26 @@ import { Form } from "semantic-ui-react";
 import { useInput } from "../hooks/useInput";
 
 const SignupForm = props => {
-  const [type, setType, handleType] = useInput("");
-  const [email, setEmail, handleEmail] = useInput("");
-  const [currentLocation, setCurrent, handleCurrent] = useInput("");
+  const [flavor, setFlavor, handleFlavor] = useInput("");
+  const [effect, setEffect, handleEffect] = useInput("");
+  const [condition, setCondition, handleCondition] = useInput("");
   const [username, setUsername, handleUsername] = useInput("");
   const [password, setPassword, handlePassword] = useInput("");
 
   const userRegister = e => {
-    localStorage.setItem("type", type.value);
+    // localStorage.setItem("type", type.value);
     e.preventDefault();
-    console.log(username, password, email, currentLocation, type.value);
+    console.log(username, password, flavor, condition, effect);
     props.userRegister({
       username,
       password,
-      email,
-      currentLocation,
-      type: type.value
+     condition: "",
+      flavors: {},
+      effect: {}
     });
-    setType("");
-    setEmail("");
-    setCurrent("");
+    setFlavor("");
+    setEffect("");
+    setCondition("");
     setUsername("");
     setPassword("");
   };
@@ -52,14 +52,6 @@ const SignupForm = props => {
         />
         <Form.Input
           required
-          label="Email"
-          type="email"
-          value={email}
-          name="email"
-          onChange={e => handleEmail(e.target.value)}
-        />
-        <Form.Input
-          required
           label="Password"
           type="text"
           value={password}
@@ -68,11 +60,27 @@ const SignupForm = props => {
         />
         <Form.Input
           required
-          label="Current City"
-          type="text"
-          value={currentLocation}
-          name="current"
-          onChange={e => handleCurrent(e.target.value)}
+          label="Effect"
+          type="checkbox"
+          value={effect}
+          name="effect"
+          onChange={e => handleEffect(e.target.value)}
+        />
+        <Form.Input
+          required
+          label="Condition"
+          type="checkbox"
+          value={condition}
+          name="condition"
+          onChange={e => handleCondition(e.target.value)}
+        />
+        <Form.Input
+          required
+          label="Flavor"
+          type="checkbox"
+          value={flavor}
+          name="flavor"
+          onChange={e => handleFlavor(e.target.value)}
         />
         <p className="error">{props.error}</p>
         <Form.Group inline>

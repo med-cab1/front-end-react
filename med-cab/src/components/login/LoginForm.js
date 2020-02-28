@@ -4,37 +4,26 @@ import { connect } from "react-redux";
 import { Form } from "semantic-ui-react";
 import { userLogin } from "../../actions";
 import { useInput } from "../hooks/useInput";
-// import { FormContainer } from "../../styled-components";
+
 
 const LoginForm = props => {
-  const [type, setType, handleType] = useInput("");
   const [username, setUsername, handleUsername] = useInput("");
   const [password, setPassword, handlePassword] = useInput("");
 
   const userLogin = e => {
     e.preventDefault();
-    localStorage.setItem("type", type.value);
+    
     props.userLogin({
       username,
       password,
-      type: type.value
+     
     });
-    setType("");
     setUsername("");
     setPassword("");
   };
   return (
     <div>
       <Form size="massive" inverted>
-        {/* <Form.Select
-          required
-          name="type"
-          label="User Type"
-          options={props.options}
-          placeholder="User Type"
-          value={type.value}
-          onChange={(e, { value }) => handleType({ value })}
-        /> */}
         <Form.Input
           required
           label="Username"
