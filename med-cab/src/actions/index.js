@@ -30,7 +30,7 @@ export const userRegister = (user) => dispath => {
             console.log(res.data)
             dispath({type: USER_REGISTER_SUCCESS, payload: res.data})
             localStorage.setItem('token', res.data.token)
-            history.push('/userform')
+            history.push('/user/userform')
         })
         .catch(err => {
             dispath({type: USER_REGISTER_FAIL, payload: 'All fields must be filled out'})
@@ -53,7 +53,7 @@ export const userLogin = (user) => dispath => {
             console.log(res.data)
             dispath({type: USER_LOGIN_SUCCESS, payload: res.data})
             localStorage.setItem('token', res.data.token)
-             history.push('/userdashboard') 
+             history.push('/user/userform') 
         })
         .catch(err => {
             dispath({type: USER_LOGIN_FAIL, payload: 'Invalid username or password'})
