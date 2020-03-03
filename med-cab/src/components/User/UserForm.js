@@ -174,7 +174,7 @@ const UserForm = props => {
 
 const mapStateToProps = state => {
   return {
-    operator: state.user,
+    user: state.user,
     success: state.success,
     error: state.error
   };
@@ -182,5 +182,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps, 
-  {  }
+  { addRec }
 )(UserForm);

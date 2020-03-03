@@ -3,7 +3,7 @@ import LoginForm from './LoginForm'
 
 
 const LoginPage = props => {
-    console.log(props.error)
+   
     return(
         <>
             <h1>Log-In</h1>

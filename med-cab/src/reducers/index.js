@@ -47,7 +47,7 @@ import { USER_REGISTER_START,
         return localStorage.getItem('type') === 'user' ?
         {
             ...state,
-            diner: {
+            user: {
                 ...action.payload.newUser,
                 message: action.payload.message
             },
@@ -67,7 +67,7 @@ import { USER_REGISTER_START,
         return action.payload.type === 'user' ?
         {
             ...state,
-            diner: {
+            user: {
                 ...action.payload,
                 message: action.payload.message
             },
@@ -77,7 +77,7 @@ import { USER_REGISTER_START,
         :
         {
             ...state,
-            operator: {
+            user: {
                 ...state.user,
                 ...action.payload
             },
@@ -111,7 +111,7 @@ import { USER_REGISTER_START,
     case USER_ADD_REC_SUCCESS:
         return{
             ...state,
-            operator: {
+            user: {
                 ...state.user,
                 recommendations: action.payload
             },
@@ -121,8 +121,8 @@ import { USER_REGISTER_START,
     case USER_ADD_REC_FAIL:
         return{
             ...state,
-            operator: {
-                ...state.operator,
+            user: {
+                ...state.user,
                 message: action.payload
             },
             isLoading: false,
