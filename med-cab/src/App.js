@@ -11,9 +11,7 @@ import UserDashboard from "./components/User/UserDashboard"
 function App() {
   return (
     <>
-
-    <UserForm />
-      {/* <Router history={history}>
+      <Router history={history}>
         <Switch>
         <PrivateRoute exact path='/user/dashboard' component={UserDashboard} />
         <PrivateRoute exact path="/user/userform" component={UserForm} />
@@ -21,7 +19,7 @@ function App() {
           <Route exact path="/register" component={SignupPage} />
           <Route component={LoginPage} />
         </Switch>
-      </Router> */}
+      </Router>
     </>
   );
 }
