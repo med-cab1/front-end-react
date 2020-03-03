@@ -2,25 +2,30 @@ import React from "react";
 import { Router, Switch, Route } from "react-router-dom";
 import history from './components/history'
 import PrivateRoute from "./components/PrivateRoute";
-import User from './components/User/User'
+import UserForm from './components/User/UserForm'
 import SignupPage from "./components/login/SignupPage";
 import LoginPage from "./components/login/LoginPage";
-// import TestDiner from "./components/User/testdiner";
+import UserDashboard from "./components/User/UserDashboard"
+
 
 function App() {
   return (
     <>
-      <Router history={history}>
+
+    <UserForm />
+      {/* <Router history={history}>
         <Switch>
-    
-        <PrivateRoute exact path="/protected" component={User} />
+        <PrivateRoute exact path='/user/dashboard' component={UserDashboard} />
+        <PrivateRoute exact path="/user/userform" component={UserForm} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={SignupPage} />
           <Route component={LoginPage} />
         </Switch>
-      </Router>
+      </Router> */}
     </>
   );
 }
 
 export default App;
+
+

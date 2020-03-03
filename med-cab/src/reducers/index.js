@@ -4,21 +4,25 @@ import { USER_REGISTER_START,
     USER_LOGIN_START, 
     USER_LOGIN_SUCCESS,
      USER_LOGIN_FAIL,
+     ADD_REC_SUCCESS ,
+     ADD_REC_FAIL,
+     USER_ADD_REC_SUCCESS,
+     USER_ADD_REC_FAIL
+
   } from '../actions'
   
   
   
   
   export let intitialState = {
-  diner: {}, 
+
   
-  operator: {
-    trucks: []
+  user: {
+    recommendations: []
   },
   
   options: [
-    { key: 'd', text: 'Diner', value: 'diner' },
-    { key: 'o', text: 'Operator', value: 'operator' },
+    { key: 'u', text: 'User', value: 'user' },
   ],
   
   isLoading: false,
@@ -40,7 +44,7 @@ import { USER_REGISTER_START,
             error: ''
         }
     case USER_REGISTER_SUCCESS:
-        return localStorage.getItem('type') === 'diner' ?
+        return localStorage.getItem('type') === 'user' ?
         {
             ...state,
             diner: {
@@ -52,15 +56,15 @@ import { USER_REGISTER_START,
         } :
         {
             ...state,
-            operator: {
-                ...state.operator,
+            user: {
+                ...state.user,
                 ...action.payload,
             },
             isLoading: false,
             error: ''
         }
     case USER_LOGIN_SUCCESS:
-        return action.payload.type === 'diner' ?
+        return action.payload.type === 'user' ?
         {
             ...state,
             diner: {
@@ -74,7 +78,7 @@ import { USER_REGISTER_START,
         {
             ...state,
             operator: {
-                ...state.operator,
+                ...state.user,
                 ...action.payload
             },
             isLoading: false,
@@ -92,6 +96,38 @@ import { USER_REGISTER_START,
             error: action.payload,
             isLoading: false
         }
+        case ADD_REC_SUCCESS:
+        return{
+            ...state,
+            error: '',
+            success: action.payload
+        }
+    case ADD_REC_FAIL: 
+        return{
+            ...state,
+            success: '',
+            error: action.payload
+        }
+    case USER_ADD_REC_SUCCESS:
+        return{
+            ...state,
+            operator: {
+                ...state.user,
+                recommendations: action.payload
+            },
+            isLoading: false,
+            error: ''
+        }
+    case USER_ADD_REC_FAIL:
+        return{
+            ...state,
+            operator: {
+                ...state.operator,
+                message: action.payload
+            },
+            isLoading: false,
+        }
+    
     
     default: 
         return state
