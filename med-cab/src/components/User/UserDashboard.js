@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import RecCard from "./RecCard"
 
@@ -9,7 +8,7 @@ import { fetchCanabisRecommendations } from "../../actions";
 const UserDashboard = props => {
 
   useEffect(() => {
-    props.fetchCanabisRecommendations('/predictions');
+    props.fetchCanabisRecommendations('/api/users/cannabis/:id/recommendations');
   }, []);
 
   
@@ -21,6 +20,10 @@ const UserDashboard = props => {
 
 
         <h3> Your Recommendations: </h3>
+
+        {props.user.recs && props.user.recs.map(rec => { 
+          return <RecCard key={rec.id} rec={rec}/>
+        })}
 
        
 

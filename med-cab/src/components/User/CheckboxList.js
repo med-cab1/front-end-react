@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Checkbox from "./Checkbox";
 import { connect } from "react-redux";
-import { fetchCanabisRecommendations } from "../../actions";
+import { addRec } from "../../actions";
 
 const disease = [
   "Cancer - Pain",
@@ -114,32 +114,11 @@ const CheckboxList = props => {
     }
   };
 
-//   const getQuery = (array) => {
-//    let queryString = `prediction?disease=${disArray[0]}`
-  
-//     array2.map((item, index) => {
-//      queryString + `&effect${index +1}=${item}`,
-//      queryString + `&effect${index +2}=${item}`,
-//      queryString + `&effect${index +3}=${item}`,
-//      queryString + `&effect${index +4}=${item}`,
-//      queryString + `&effect${index +5}=${item}`
-//     })
-//     array3.map((item, index) => {
-//       queryString + `&flavor${index +1}=${item}`,
-//       queryString + `&flavor${index +2}=${item}`,
-//       queryString + `&flavor${index +3}=${item}`
-     
-//     })
-// return queryString
-
-
-
-//   }
 
   const submitForm = event => {
     event.preventDefault();
-    // const query = getQuery(rec.selectedCheckboxes)
-    props.fetchCanabisRecommendations({ ...rec, id: props.user.id });
+    
+    props.addRec({ ...rec, id: props.user.id });
     setMessage({ error: props.error, success: props.success });
     setRec({ selectedCheckboxes:[] });
 
@@ -152,12 +131,6 @@ const CheckboxList = props => {
     <Checkbox
       label={label}
       handleCheckboxChange={toggleCheckbox}
-      // disabled={
-      //   rec.selectedCheckboxes.length >= 9 &&
-      //   !rec.selectedCheckboxes.includes(label)
-      //     ? "disabled"
-      //     : ""
-      // }
       key={label}
     />
   );
@@ -198,4 +171,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { fetchCanabisRecommendations })(CheckboxList);
+export default connect(mapStateToProps, { addRec })(CheckboxList);

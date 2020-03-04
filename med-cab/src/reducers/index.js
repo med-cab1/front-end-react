@@ -7,7 +7,8 @@ import { USER_REGISTER_START,
      ADD_REC_SUCCESS ,
      ADD_REC_FAIL,
      USER_ADD_REC_SUCCESS,
-     USER_ADD_REC_FAIL
+     USER_ADD_REC_FAIL,
+     FETCH_TRUCKS_SUCCESS
 
   } from '../actions'
   
@@ -127,7 +128,14 @@ import { USER_REGISTER_START,
             },
             isLoading: false,
         }
-    
+        case FETCH_TRUCKS_SUCCESS:
+            return{
+                ...state,
+                operator: {
+                    ...state.operator,
+                    trucks: action.payload
+                }
+            }
     
     default: 
         return state

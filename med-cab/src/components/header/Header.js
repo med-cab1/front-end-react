@@ -6,10 +6,10 @@ const Header = () => {
     return(
         <div>
             
-                <img src= "images/1753820-marijuana/png/033-Marijuana.png" />
+            <img src="images/icons/png/HASHtagLogo.png" title="HASHtags" alt="HASHtags Logo"/>
             
         </div>
     )
 }
 
-export default Header
+export default Header;
