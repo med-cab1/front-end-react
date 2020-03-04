@@ -6,7 +6,7 @@ const Header = () => {
     return(
         <div>
             
-                {/* <img src= "" /> */}
+                <img src= "images/1753820-marijuana/png/033-Marijuana.png" />
             
         </div>
     )

@@ -4,11 +4,11 @@ const axiosWithAuth2 = () => {
     const token = localStorage.getItem('token')
     
     return axios.create({
-        baseURL: '',
+        baseURL: 'https://unburied-medcab.herokuapp.com/predictions',
         headers: {
             Authorization: `${token}`
         }
     })
 }
 
-export default axiosWithAuth2
+export default axiosWithAuth2;

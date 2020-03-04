@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Checkbox from "./Checkbox";
 import { connect } from "react-redux";
-import { addRec } from "../../actions";
+import { fetchCanabisRecommendations } from "../../actions";
 
-const conditions = [
+const disease = [
   "Cancer - Pain",
   "Cancer - Nausea",
   "Cancer - Wasting",
@@ -91,17 +91,14 @@ const effects = [
   "Dry Mouth"
 ];
 
-const CheckboxList = props=> {
+const CheckboxList = props => {
   const [rec, setRec] = useState({
-    disease: "",
-    flavors: "",
-    effects: "",
+    
     selectedCheckboxes: []
-
   });
   const [message, setMessage] = useState({ error: "", success: "" });
 
- const toggleCheckbox = label => {
+  const toggleCheckbox = label => {
     if (rec.selectedCheckboxes.includes(label)) {
       setRec({
         ...rec,
@@ -117,68 +114,81 @@ const CheckboxList = props=> {
     }
   };
 
+//   const getQuery = (array) => {
+//    let queryString = `prediction?disease=${disArray[0]}`
+  
+//     array2.map((item, index) => {
+//      queryString + `&effect${index +1}=${item}`,
+//      queryString + `&effect${index +2}=${item}`,
+//      queryString + `&effect${index +3}=${item}`,
+//      queryString + `&effect${index +4}=${item}`,
+//      queryString + `&effect${index +5}=${item}`
+//     })
+//     array3.map((item, index) => {
+//       queryString + `&flavor${index +1}=${item}`,
+//       queryString + `&flavor${index +2}=${item}`,
+//       queryString + `&flavor${index +3}=${item}`
+     
+//     })
+// return queryString
+
+
+
+//   }
+
   const submitForm = event => {
     event.preventDefault();
-
-    for (const checkbox of rec.selectedCheckboxes) {
-      console.log(checkbox, "is selected.");
-
-    props.addRec({ ...rec, id: props.user.id });
+    // const query = getQuery(rec.selectedCheckboxes)
+    props.fetchCanabisRecommendations({ ...rec, id: props.user.id });
     setMessage({ error: props.error, success: props.success });
-    setRec({ disease: "", flavors: "", effects: "" });
+    setRec({ selectedCheckboxes:[] });
+
+    console.log(rec.selectedCheckboxes, "is selected.");
+
+    console.log(message);
   };
 
-  console.log(message);
-
-    
-  };
-
- const createCheckbox = label => (
+  const createCheckbox = label => (
     <Checkbox
       label={label}
       handleCheckboxChange={toggleCheckbox}
-      disabled={
-        rec.selectedCheckboxes.length >= 9 &&
-        !rec.selectedCheckboxes.includes(label)
-          ? "disabled"
-          : ""
-      }
+      // disabled={
+      //   rec.selectedCheckboxes.length >= 9 &&
+      //   !rec.selectedCheckboxes.includes(label)
+      //     ? "disabled"
+      //     : ""
+      // }
       key={label}
     />
   );
 
   const createCheckboxes = () => flavors.map(createCheckbox);
   const createCheckboxesv2 = () => effects.map(createCheckbox);
-  const createCheckboxesv3 = () => conditions.map(createCheckbox);
+  const createCheckboxesv3 = () => disease.map(createCheckbox);
 
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12">
-            <h3> Current Condition (Pick 1 max): </h3>
-            <form onSubmit={submitForm}>
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-sm-12">
+          <form onSubmit={submitForm}>
+            <h3> Current Disease (Pick 1 max): </h3>
+
             {createCheckboxesv3()}
             <h3> Desired Flavors (Pick 3 max): </h3>
-            <form onSubmit={submitForm}>
+
             {createCheckboxes()}
-            <h3>Desired Effects(pick 5 max) </h3> 
-            <form onSubmit={submitForm}>
+            <h3>Desired Effects(pick 5 max) </h3>
+
             {createCheckboxesv2()}
-            <button
-            className="btn btn-default"
-            type="submit"
-          >
-            Submit
-          </button>
+            <button className="btn btn-default" type="submit">
+              Submit
+            </button>
           </form>
-          </form>
-          </form>
-          </div>
         </div>
       </div>
-    );
-  }
-
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
   return {
@@ -188,5 +198,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addRec })(CheckboxList);
-
+export default connect(mapStateToProps, { fetchCanabisRecommendations })(CheckboxList);
