@@ -1,5 +1,6 @@
 import axiosWithAuth from '../components/axiosWithAuth'
 import history from '../components/history'
+import axiosWithAuth2 from '../components/axiosWithAuth2'
 
 export const USER_REGISTER_START = 'USER_RREGISTER_START'
 export const USER_REGISTER_SUCCESS = 'USER_REGISTER_SUCCESS'
@@ -66,22 +67,22 @@ export const userLogin = (user) => dispath => {
 export const addRec = rec => dispatch => {
 
     axiosWithAuth()
-    .post('/api/users/cannabis/:id/recommendations', {
+    .post('', {
         conditions: rec.conditions,
         flavor: rec.flavor,
         effect: rec.effect
       })
       .then(res => {
         console.log(res)
-        dispatch({type: ADD_REC_SUCCESS, payload: 'Recommendations incoming'})
+        dispatch({type: ADD_REC_SUCCESS, payload: res.data})
       })
       .catch(err => {
         console.log(err.message)
         dispatch({type: ADD_REC_FAIL, payload: 'Error getting reocmmendations'})
       })
 
-      axiosWithAuth()
-        .get('/api/users/cannabis/:id/recommendations')
+      axiosWithAuth2()
+        .get('')
         .then(res => {
             dispatch({type: USER_ADD_REC_SUCCESS, payload: res.data})
         })

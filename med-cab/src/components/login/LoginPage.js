@@ -1,17 +1,19 @@
-import React from 'react'
-import LoginForm from './LoginForm'
+import React from "react";
+import LoginForm from "./LoginForm";
+import Header from "../header/Header"
 
 
 const LoginPage = props => {
-   
-    return(
-        <>
-            <h1>Log-In</h1>
-            <div>
-                <LoginForm />
-            </div>
-        </>
-    )
-}
+  return (
+    <>
+    <div>
+      <Header />
+      <h1>Log-In</h1>
+      
+        <LoginForm />
+      </div>
+    </>
+  );
+};
 
-export default LoginPage
+export default LoginPage;
