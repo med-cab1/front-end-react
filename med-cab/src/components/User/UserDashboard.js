@@ -8,7 +8,7 @@ import { fetchCanabisRecommendations } from "../../actions";
 const UserDashboard = props => {
 
   useEffect(() => {
-    props.fetchCanabisRecommendations('/api/users/cannabis/:id/recommendations');
+    props.fetchCanabisRecommendations('/api/users/cannabis/1/recommendations');
   }, []);
 
   
@@ -21,7 +21,7 @@ const UserDashboard = props => {
 
         <h3> Your Recommendations: </h3>
 
-        {props.user.recs && props.user.recs.map(rec => { 
+        {props.user.recommendations && props.user.recommendations.map(rec => { 
           return <RecCard key={rec.id} rec={rec}/>
         })}
 

@@ -76,8 +76,9 @@ export const addRec = rec => dispatch => {
     });
 
   axiosWithAuth()
-    .get("/api/users/cannabis/:id/recommendations")
+    .get("/api/users/cannabis/1/recommendations")
     .then(res => {
+      console.log(res);
       dispatch({ type: USER_ADD_REC_SUCCESS, payload: res.data });
       history.push("/user/dashboard");
     })

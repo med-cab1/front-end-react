@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { addRec } from "../../actions";
 
 const disease = [
-  "Cancer - Pain",
-  "Cancer - Nausea",
-  "Cancer - Wasting",
+  "Cancer-Pain",
+  "Cancer-Nausea",
+  "Cancer-Wasting",
   "Glaucoma",
   "HIV/AIDS",
   "Seizures",

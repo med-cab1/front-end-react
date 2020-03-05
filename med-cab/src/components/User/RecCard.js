@@ -13,7 +13,7 @@ function RecCard(props) {
 
         <div>
           <div> ID: {props.rec.id}</div>
-          <div> Strains: {props.rec.strains}</div>
+          <div> Strains: {props.rec.strain}</div>
           <div> Info: {props.rec.info}</div>
         </div>
       </div>
