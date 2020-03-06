@@ -12,7 +12,7 @@ const disease = [
   "Seizures",
   "Muscle Spasms",
   "Autism",
-  "Sleep Apnia",
+  "Sleep_Apnia",
   "Tourette Syndrome",
   "ALS",
   "IBS",
