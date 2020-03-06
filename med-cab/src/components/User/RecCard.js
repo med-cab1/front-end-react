@@ -11,7 +11,7 @@ function RecCard(props) {
       <div>
        
 
-        <div>
+        <div className="reccard">
           <div> ID: {props.rec.id}</div>
           <div> Strains: {props.rec.strain}</div>
           <div> Info: {props.rec.info}</div>

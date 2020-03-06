@@ -104,7 +104,10 @@ import { USER_REGISTER_START,
         return{
             ...state,
             error: '',
-            success: action.payload
+            user: {
+            ...state.user,
+            prediction: action.payload
+            }
         }
     case ADD_REC_FAIL: 
         return{

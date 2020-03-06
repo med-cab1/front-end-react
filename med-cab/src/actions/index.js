@@ -78,16 +78,7 @@ export const addRec = rec => dispatch => {
     });
   };
 
-  // axiosWithAuth()
-  //   .get(`/api/users/cannabis/${props.user.id}/recommendations`)
-  //   .then(res => {
-  //     console.log(res);
-  //     dispatch({ type: USER_ADD_REC_SUCCESS, payload: res.data });
-  //     history.push("/user/dashboard");
-  //   })
-  //   .catch(err => {
-  //     dispatch({ type: USER_ADD_REC_FAIL, payload: err.message });
-  //   });
+ 
 
 
 
@@ -103,14 +94,3 @@ export const fetchCanabisRecommendations = (url) => dispatch => {
     });
 };
 
-export const fetchCanabisPrediction = (url) => dispatch => {
-  axiosWithAuth()
-    .post(url, ["Cancer-Pain", "Energetic", "Creative", "Tingly", "Euphoric", "Relaxed","Earthy", "Sweet", "Citrus"])
-    .then(res => {
-      console.log(res.data);
-      dispatch({ type: FETCH_PREDICTION_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      console.log(err);
-    });
-};

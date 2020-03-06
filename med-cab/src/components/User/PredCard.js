@@ -8,7 +8,7 @@ function PredCard(props) {
 
   
   return (
-    <div className="character-card">
+    <div className="pred-card">
       <div>
        
 

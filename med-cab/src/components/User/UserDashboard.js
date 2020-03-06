@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-
+import history from "../history"
 import { connect } from 'react-redux'
 import RecCard from "./RecCard"
 import PredCard from "./PredCard"
@@ -10,8 +10,13 @@ const UserDashboard = props => {
 
   useEffect(() => {
     props.fetchCanabisRecommendations(`/api/users/cannabis/${props.user.id}/recommendations`);
-    props.fetchCanabisPrediction(`/api/users/cannabis/prediction`)
+  
   }, []);
+
+ const  handleSubmit = e => {
+    history.push ("/user/userform");
+
+  }
 
   
   return (
@@ -30,6 +35,11 @@ const UserDashboard = props => {
        <h3> Your Recommended List:</h3>
 
       <PredCard userPrediction = {props.user.prediction}/>
+      <button> Update your Saved Prediction </button>
+
+
+
+      <button onClick={handleSubmit}>Edit Form for New Recommendation</button>
        
        
 
@@ -47,5 +57,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {fetchCanabisRecommendations, fetchCanabisPrediction}
+  {fetchCanabisRecommendations}
 )(UserDashboard)
