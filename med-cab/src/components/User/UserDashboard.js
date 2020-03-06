@@ -11,7 +11,7 @@ const UserDashboard = props => {
   useEffect(() => {
     props.fetchCanabisRecommendations(`/api/users/cannabis/${props.user.id}/recommendations`);
     props.fetchCanabisPrediction(`/api/users/cannabis/prediction`)
-  }, [],[]);
+  }, []);
 
   
   return (
@@ -27,11 +27,10 @@ const UserDashboard = props => {
           return <RecCard key={rec.id} rec={rec}/>
         })}
 
-        Your Preferred List:
+       <h3> Your Recommended List:</h3>
 
-  {props.user.prediction && props.user.prediction.map(pred => { 
-          return <PredCard key={pred.id} rec={pred}/>
-        })}
+      <PredCard userPrediction = {props.user.prediction}/>
+       
        
 
       </div>

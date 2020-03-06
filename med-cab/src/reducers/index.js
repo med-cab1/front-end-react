@@ -144,9 +144,9 @@ import { USER_REGISTER_START,
         case FETCH_PREDICTION_SUCCESS:
             return{
                 ...state,
-                prediction: {
+                user: {
                     ...state.user,
-                    recommendations: action.payload
+                    prediction: action.payload
                 }
             }
         

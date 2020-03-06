@@ -3,6 +3,7 @@ import React from "react";
 
 
 
+
 function PredCard(props) {
 
   
@@ -12,9 +13,9 @@ function PredCard(props) {
        
 
         <div>
-          <div> ID: {props.pred.id}</div>
-          <div> Strains: {props.pred.strain}</div>
-          <div> Info: {props.pred.info}</div>
+        
+          <div> Strains: {props.userPrediction.strains}</div>
+          <div> Info: {props.userPrediction.info}</div>
         </div>
       </div>
     </div>

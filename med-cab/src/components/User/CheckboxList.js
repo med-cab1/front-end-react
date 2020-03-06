@@ -145,13 +145,13 @@ const CheckboxList = props => {
       <div className="row">
         <div className="col-sm-12">
           <form onSubmit={submitForm}>
-            <h3> Current Disease (Pick 1 max): </h3>
+            <h3> Current Disease (Pick 1 only): </h3>
 
             {createCheckboxesv3()}
-            <h3> Desired Flavors (Pick 4 max): </h3>
+            <h3> Desired Flavors (Pick 3 only): </h3>
 
             {createCheckboxes()}
-            <h3>Desired Effects(pick 5 max) </h3>
+            <h3>Desired Effects(pick 5 only) </h3>
 
             {createCheckboxesv2()}
             <button className="btn btn-default" type="submit">
