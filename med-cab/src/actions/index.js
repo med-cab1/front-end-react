@@ -1,6 +1,6 @@
 import axiosWithAuth from "../components/axiosWithAuth";
 import history from "../components/history";
-import axiosWithAuth2 from "../components/axiosWithAuth2";
+
 
 export const USER_REGISTER_START = "USER_RREGISTER_START";
 export const USER_REGISTER_SUCCESS = "USER_REGISTER_SUCCESS";
@@ -13,7 +13,8 @@ export const ADD_REC_FAIL = "ADD_REC_FAIL";
 export const USER_ADD_REC_SUCCESS = "USER_ADD_REC_SUCCESS";
 export const USER_ADD_REC_FAIL = "USER_ADD_REC_FAIL";
 export const FETCH_RECOMMENDATION_SUCCESS = "FETCH_RECOMMENDATION_SUCCESS";
-export const FETCH_TRUCKS_SUCCESS = "FETCH_TRUCKS_SUCCESS"
+export const FETCH_TRUCKS_SUCCESS = "FETCH_TRUCKS_SUCCESS";
+export const FETCH_PREDICTION_SUCCESS ="FETCH_PREDICTION_SUCCESS";
 
 export const userRegister = user => dispath => {
   dispath({ type: USER_REGISTER_START });
@@ -62,10 +63,11 @@ export const userLogin = user => dispath => {
 
 export const addRec = rec => dispatch => {
   axiosWithAuth()
-    .post("/api/users/cannabis/prediction", rec.selectedCheckboxes)
+    .post(`/api/users/cannabis/prediction`, rec.selectedCheckboxes)
     .then(res => {
       console.log(res);
       dispatch({ type: ADD_REC_SUCCESS, payload: res.data });
+      history.push("/user/dashboard");
     })
     .catch(err => {
       console.log(err.message);
@@ -74,18 +76,20 @@ export const addRec = rec => dispatch => {
         payload: "Error getting recommendations"
       });
     });
+  };
 
-  axiosWithAuth()
-    .get("/api/users/cannabis/1/recommendations")
-    .then(res => {
-      console.log(res);
-      dispatch({ type: USER_ADD_REC_SUCCESS, payload: res.data });
-      history.push("/user/dashboard");
-    })
-    .catch(err => {
-      dispatch({ type: USER_ADD_REC_FAIL, payload: err.message });
-    });
-};
+  // axiosWithAuth()
+  //   .get(`/api/users/cannabis/${props.user.id}/recommendations`)
+  //   .then(res => {
+  //     console.log(res);
+  //     dispatch({ type: USER_ADD_REC_SUCCESS, payload: res.data });
+  //     history.push("/user/dashboard");
+  //   })
+  //   .catch(err => {
+  //     dispatch({ type: USER_ADD_REC_FAIL, payload: err.message });
+  //   });
+
+
 
 export const fetchCanabisRecommendations = (url) => dispatch => {
   axiosWithAuth()
@@ -93,6 +97,18 @@ export const fetchCanabisRecommendations = (url) => dispatch => {
     .then(res => {
       console.log(res.data);
       dispatch({ type: FETCH_RECOMMENDATION_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const fetchCanabisPrediction = (url) => dispatch => {
+  axiosWithAuth()
+    .post(url)
+    .then(res => {
+      console.log(res.data);
+      dispatch({ type: FETCH_PREDICTION_SUCCESS, payload: res.data });
     })
     .catch(err => {
       console.log(err);

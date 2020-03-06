@@ -119,6 +119,7 @@ const CheckboxList = props => {
     event.preventDefault();
     
     props.addRec({ ...rec, id: props.user.id });
+    console.log(rec);
     setMessage({ error: props.error, success: props.success });
     setRec({ selectedCheckboxes:[] });
 
@@ -147,7 +148,7 @@ const CheckboxList = props => {
             <h3> Current Disease (Pick 1 max): </h3>
 
             {createCheckboxesv3()}
-            <h3> Desired Flavors (Pick 3 max): </h3>
+            <h3> Desired Flavors (Pick 4 max): </h3>
 
             {createCheckboxes()}
             <h3>Desired Effects(pick 5 max) </h3>

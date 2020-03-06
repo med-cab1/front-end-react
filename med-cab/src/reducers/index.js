@@ -8,7 +8,9 @@ import { USER_REGISTER_START,
      ADD_REC_FAIL,
      USER_ADD_REC_SUCCESS,
      USER_ADD_REC_FAIL,
-     FETCH_TRUCKS_SUCCESS
+     FETCH_PREDICTION_SUCCESS,
+     FETCH_RECOMMENDATION_SUCCESS
+     
 
   } from '../actions'
   
@@ -19,7 +21,8 @@ import { USER_REGISTER_START,
 
   
   user: {
-    recommendations: []
+    recommendations: [],
+    prediction: []
   },
   
   options: [
@@ -128,14 +131,25 @@ import { USER_REGISTER_START,
             },
             isLoading: false,
         }
-        case FETCH_TRUCKS_SUCCESS:
+
+        case FETCH_RECOMMENDATION_SUCCESS:
+        return{
+            ...state,
+            recommendations: {
+                ...state.user,
+                recommendations: action.payload
+            }
+        }
+        
+        case FETCH_PREDICTION_SUCCESS:
             return{
                 ...state,
-                operator: {
-                    ...state.operator,
-                    trucks: action.payload
+                prediction: {
+                    ...state.user,
+                    recommendations: action.payload
                 }
             }
+        
     
     default: 
         return state
