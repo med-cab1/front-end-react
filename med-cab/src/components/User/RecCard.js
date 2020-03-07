@@ -17,8 +17,8 @@ function RecCard(props) {
     <RecCards>
       <div>
         
-        <div> Strains: {props.rec.strain}</div>
-        <div> Info: {props.rec.info}</div>
+        <div> Strains: {props.userRecommendation}</div>
+        <div> Info: {props.userRecommendation}</div>
       </div>
     </RecCards>
   );

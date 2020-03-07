@@ -57,9 +57,8 @@ const UserDashboard = props => {
 
         <MyH3> Your Saved Recommendations: </MyH3>
 
-        {props.user.recommendations && props.user.recommendations.map(rec => { 
-          return <RecCard key={rec.id} rec={rec}/>
-        })}
+        <RecCard userRecommendation={props.user.recommendation}/>
+       
 
        <MyH3> Your Recommended List:</MyH3>
 
