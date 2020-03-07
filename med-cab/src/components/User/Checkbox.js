@@ -1,4 +1,13 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+
+const Container = styled.div`
+
+text-align: center;
+padding: 10px;
+
+`;
+
 
 class Checkbox extends Component {
   state = {
@@ -28,7 +37,7 @@ class Checkbox extends Component {
  
 
     return (
-      <div className="checkbox">
+      <Container>
         <label>
           <input
             type="checkbox"
@@ -41,7 +50,7 @@ class Checkbox extends Component {
 
           {label}
         </label>
-      </div>
+      </Container>
     );
   }
 }

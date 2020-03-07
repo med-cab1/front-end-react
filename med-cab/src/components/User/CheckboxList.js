@@ -2,6 +2,31 @@ import React, { useState } from "react";
 import Checkbox from "./Checkbox";
 import { connect } from "react-redux";
 import { addRec } from "../../actions";
+import styled from "styled-components";
+
+const MyH3 = styled.h3`
+position: relative;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: #659b6e;
+  text-decoration: underline;
+`;
+const ButtonForm = styled.button`
+background-color: #4CAF50;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+`;
+const Container = styled.div`
+text-align: center;
+
+`;
 
 const disease = [
   "Cancer-Pain",
@@ -141,26 +166,26 @@ const CheckboxList = props => {
   const createCheckboxesv3 = () => disease.map(createCheckbox);
 
   return (
-    <div className="container">
+    <Container>
       <div className="row">
         <div className="col-sm-12">
           <form onSubmit={submitForm}>
-            <h3> Current Disease (Pick 1 only): </h3>
+            <MyH3> Current Disease (Pick 1 only): </MyH3>
 
             {createCheckboxesv3()}
-            <h3> Desired Flavors (Pick 3 only): </h3>
+            <MyH3> Desired Flavors (Pick 3 only): </MyH3>
 
             {createCheckboxes()}
-            <h3>Desired Effects(pick 5 only) </h3>
+            <MyH3>Desired Effects(pick 5 only) </MyH3>
 
             {createCheckboxesv2()}
-            <button className="btn btn-default" type="submit">
+            <ButtonForm  className="btn btn-default" type="submit">
               Submit
-            </button>
+            </ButtonForm >
           </form>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

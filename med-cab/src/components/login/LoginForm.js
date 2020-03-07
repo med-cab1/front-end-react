@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Form } from "semantic-ui-react";
 import { userLogin } from "../../actions";
 import { useInput } from "../hooks/useInput";
+import styled from "styled-components";
 
 
 
@@ -25,7 +26,9 @@ const LoginForm = props => {
   return (
     <div>
       
-      <Form size="massive" inverted>
+      <Form class="ui form" size="massive" inverted>
+        
+      <Form.Group inline>
         <Form.Input
           required
           label="Username"
@@ -43,8 +46,8 @@ const LoginForm = props => {
           onChange={e => handlePassword(e.target.value)}
         />
         <p className="error">{props.error}</p>
-        <Form.Group inline>
-          <Form.Button size="massive" onClick={userLogin}>
+        
+          <Form.Button  class="ui button" size="massive" onClick={userLogin}>
             Submit
           </Form.Button>
           <Link className="login-link" to="/register">

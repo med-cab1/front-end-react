@@ -1,18 +1,18 @@
-import React from 'react'
-import SignupForm from './SignupForm'
-
+import React from "react";
+import SignupForm from "./SignupForm";
+import Nav from "../Nav";
 
 const SignupPage = () => {
-    return(
-        <>
+  return (
+    <>
+      <Nav />
+      <h1> Please Register </h1>
 
-        <h1> Please Register </h1>
-          
-          
-                <SignupForm />
-           
-        </>
-    )
-}
+      <div>__________________</div>
 
-export default SignupPage
+      <SignupForm />
+    </>
+  );
+};
+
+export default SignupPage;

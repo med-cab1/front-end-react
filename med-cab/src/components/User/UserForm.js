@@ -1,5 +1,6 @@
 import React from "react";
 import CheckboxList from "./CheckboxList";
+import Nav from "../Nav";
 
 
 
@@ -25,6 +26,7 @@ const UserForm = props => {
   return (
     <>
       <div className="container">
+      <Nav />
         <div className="row">
           <CheckboxList />
           
