@@ -55,12 +55,12 @@ const UserDashboard = props => {
        
 
 
-        <MyH3> Your Saved Recommendations: </MyH3>
+        <MyH3> Hello ! {props.user.username} ! Here are your Saved Recommendations: </MyH3>
 
         <RecCard userRecommendation={props.user.recommendation}/>
        
 
-       <MyH3> Your Recommended List:</MyH3>
+       <MyH3> {props.user.username}'s Recommended List:</MyH3>
 
       <PredCard userPrediction = {props.user.prediction}/>
       <ButtonDash> Update your Saved Prediction </ButtonDash>
