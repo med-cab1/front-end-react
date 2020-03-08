@@ -11,6 +11,13 @@ const Container = styled.div`
   text-align: center;
 `;
 
+const SmallContainer = styled.div `
+ margin: 5px auto;
+ padding: 20px;
+
+
+`;
+
 const ButtonDash = styled.button`
   background-color: #4caf50;
   border: none;
@@ -46,23 +53,26 @@ const UserDashboard = props => {
     <>
       <Container>
         <Nav />
+        <SmallContainer>
 
         <MyH3>
           {" "}
           Hello ! {props.user.username} ! Here are your Saved Recommendations:{" "}
         </MyH3>
 
-       <div>
         <span></span>
         <p>Need to Save a recommendations first!</p>
         <span></span>
         <p> ____________</p>
-        </div>
+        </SmallContainer>
 
-
+        <SmallContainer>
+      
         <MyH3> {props.user.username}'s Recommended List:</MyH3>
 
         <PredCard userPrediction={props.user.prediction} />
+       </SmallContainer>
+
         <ButtonDash> Add Strains to your Saved Prediction </ButtonDash>
 
         <ButtonDash onClick={handleSubmit}>
