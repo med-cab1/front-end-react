@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
-import HASHtag from "./images/HASHtagLogo.png";
+
 // import { BurgerIcon } from './'
 import styled from "styled-components";
 
@@ -143,7 +143,7 @@ class Nav extends Component {
       <Navigation>
         <div className="logo">
           <Link to="/">
-            <img src={HASHtag} alt="HASHtag" />
+            
           </Link>
         </div>
         <nav className="nav">
