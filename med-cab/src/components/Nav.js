@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
 
-// import { BurgerIcon } from './'
+
 import styled from "styled-components";
 
 const Navigation = styled.header`

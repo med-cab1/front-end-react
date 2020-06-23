@@ -3,14 +3,14 @@ import LoginForm from "./LoginForm";
 import Nav from "../Nav";
 import styled from "styled-components";
 
-const MyH1 = styled.h1 `
-color: #659b6e;
+const H1 = styled.h1 `
+color: green;
 position: relative;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-size: 65px;
   padding: 30px;
-  text-decoration: underline;
+  text-decoration: none;
   
 `;
 const Container = styled.div`
@@ -25,7 +25,7 @@ const LoginPage = props => {
      
       
       <Nav />
-      <MyH1>Log-In</MyH1>
+      <H1>Log-In</H1>
       
         <LoginForm />
       </Container>
